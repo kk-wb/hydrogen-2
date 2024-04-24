@@ -176,7 +176,7 @@ function ProductMain({
       <br />
       <br />
       <p>
-        <strong>Description</strong>
+        <strong>Description?</strong>
       </p>
       <br />
       <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
