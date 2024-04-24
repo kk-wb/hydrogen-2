@@ -190,7 +190,7 @@ function ProductCreatedAt({
 }: {
   selectedVariant: ProductFragment['selectedVariant'];
 }) {
-  const {createdAt} = selectedVariant;
+  const {createdAt} = selectedVariant.product;
   return (
     <div className="product-created-at">
       <p>{createdAt}</p>
@@ -351,6 +351,7 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
     product {
       title
       handle
+      createdAt
     }
     quantityAvailable
     selectedOptions {
@@ -363,7 +364,6 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
       amount
       currencyCode
     }
-    createdAt
   }
 ` as const;
 
