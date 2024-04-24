@@ -149,6 +149,8 @@ function ProductMain({
       <h1>{title}</h1>
       <ProductPrice selectedVariant={selectedVariant} />
       <br />
+      <ProductCreatedAt selectedVariant={selectedVariant} />
+      <br />
       <Suspense
         fallback={
           <ProductForm
@@ -179,6 +181,19 @@ function ProductMain({
       <br />
       <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
+    </div>
+  );
+}
+
+function ProductCreatedAt({
+  selectedVariant,
+}: {
+  selectedVariant: ProductFragment['selectedVariant'];
+}) {
+  const {createdAt} = selectedVariant;
+  return (
+    <div className="product-created-at">
+      <p>{createdAt}</p>
     </div>
   );
 }
@@ -348,6 +363,7 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
       amount
       currencyCode
     }
+    createdAt
   }
 ` as const;
 
@@ -375,6 +391,7 @@ const PRODUCT_FRAGMENT = `#graphql
       description
       title
     }
+    createdAt
   }
   ${PRODUCT_VARIANT_FRAGMENT}
 ` as const;
