@@ -193,7 +193,7 @@ function ProductCreatedAt({
   const {createdAt} = selectedVariant.product;
   return (
     <div className="product-created-at">
-      <p>{createdAt}</p>
+      <p>CreatedAt: {createdAt}</p>
     </div>
   );
 }
